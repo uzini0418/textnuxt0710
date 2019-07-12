@@ -6,18 +6,19 @@
         <NLink :to="'/contacts/' + c.no">{{c.name}}</NLink>
       </div>
     </div>
+    <nuxt-child></nuxt-child>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+  import { mapGetters } from 'vuex';
 
-    export default {
-        name: "contacts",
-        computed: mapGetters({
-          contacts: 'getContacts'
-        })
-    }
+  export default {
+    name: "contacts",
+    computed: mapGetters({
+      contacts: 'getContacts'
+    })
+  }
 </script>
 
 <style scoped>

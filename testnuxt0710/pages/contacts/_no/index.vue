@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1></h1>
+    <hr class="divider"/>
     <div>
       <table class="detail table table-bordered">
         <tbody>
@@ -32,16 +32,27 @@
     export default {
         name: "contactbyno",
         computed: mapGetters({
-          contact: 'getContactOne'
+          contact: 'getContactOne' // 여기서 getters로 넘어갔을 때 state 파라미터 내용은 어디서 가져오는거지?
         }),
         created: function() {
           console.log(this.$route.params);
           var no = this.$route.params.no;
           this.$store.commit(Constant.CHANGE_NO, {no: no});
+        },
+        beforeRouteUpdate(to,from,next) {
+          console.log(to);
+          console.log(from);
+          console.log(next);
+          var no = to.params.no;
+          this.$route.commit(Constant.CHANGE_NO, {no: no});
+          next();
         }
     }
 </script>
 
 <style scoped>
-
+table.detail {width: 400px;}
+table * {
+  border: 1px solid black;
+}
 </style>
