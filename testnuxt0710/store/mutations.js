@@ -11,7 +11,7 @@ export default {
   [Constant.ADD_TODO]: (state, payload) => {
     // state 변이 작업
     if(payload.todo !== "") {
-      state.todolist.push({ todo: payload.todo, done:false });
+      state.todolist.push({ todo: payload, done:false });
     }
   }
 }

@@ -25,12 +25,12 @@ import { mapMutations } from 'vuex';
           //   this.$store.commit(Constant.ADD_TODO, {todo: this.todo});
           //   this.todo = "";
           // }
-            ...mapMutations([
+            mapMutations([
               Constant.ADD_TODO
-            ]),
-            addTodo: function() {
-              this.Constant.ADD_TODO({todo: this.todo});
-            }
+            ])
+            // addTodo: function() {
+            //   this.$store.commit(Constant.ADD_TODO, this.todo);
+            // }
         }
     }
 </script>

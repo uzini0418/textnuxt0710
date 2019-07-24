@@ -10,5 +10,9 @@ export default {
   },
   getContacts(state) {
     return state.contacts;
+  },
+  // TodoList
+  getTodoList(state) {
+    return state.todolist;
   }
 }

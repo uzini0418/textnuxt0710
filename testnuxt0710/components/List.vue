@@ -1,6 +1,6 @@
 <template>
   <ul id="todolist">
-    <li v-for="(a, index) in todolist" :class="checked(a.done)" :key="index"
+    <li v-for="(a, index) in getTodoList" :class="checked(a.done)" :key="index"
         v-on:click="doneToggle(index)">
       <span>{{ a.todo }}</span>
       <span v-if="a.done"> (완료)</span>
@@ -8,12 +8,12 @@
 
     </li>
   </ul>
-    
+
 </template>
 
 <script>
 import eventBus from './EventBus.vue';
-import { mapState, mapMutations } from 'vuex';
+import { mapState, mapGetters, mapMutations } from 'vuex';
     export default {
         name: "List",
       /*
@@ -44,18 +44,32 @@ import { mapState, mapMutations } from 'vuex';
         //   }
         // },
         doneToggle: function (index) {
-          this.todolist[index].done = !this.todolist[index].done;
+          console.log('doneToggle');
+          console.log(index);
+          console.log("22");
+          this.getTodoList[index].done = !this.getTodoList[index].done;
+          //this.todolist[index].done = !this.todolist[index].done;
         },
         deleteTodo: function (index) {
-          this.todolist.splice(index, 1);
-        }
+          console.log('deleteTodo');
+          this.getTodoList.splice(index, 1);
+          //this.todolist.splice(index, 1);
+        },
+
       },
 
-      computed: mapState(['todoList'])
-        // todolist() {
-        //   return this.$store.state.todolist;
-        // }
-
+      // computed: {
+      //   todolist: function() {
+      //     return this.$store.state.todolist;
+      //   }
+      // }
+      //computed: mapState(['todolist'])
+      // computed: {
+      //   getTodoList: function() {
+      //       return this.$store.getters.getTodoList;
+      //   }
+      // }
+      computed: mapGetters(['getTodoList'])
     }
 </script>
 
