@@ -35,17 +35,18 @@
           contact: 'getContactOne' // 여기서 getters로 넘어갔을 때 state 파라미터 내용은 어디서 가져오는거지?
         }),
         created: function() {
-          console.log(this.$route.params);
+          //console.log(this.$route.params);
           var no = this.$route.params.no;
           this.$store.commit(Constant.CHANGE_NO, {no: no});
         },
         beforeRouteUpdate(to,from,next) {
-          console.log(to);
-          console.log(from);
-          console.log(next);
+         // console.log(this.$route.params);
+          console.log(to); // 이동할 url
+          //console.log(from); //이전 url
+          console.log(next); // to url로 넘어감
           var no = to.params.no;
-          this.$route.commit(Constant.CHANGE_NO, {no: no});
-          next();
+          this.$store.commit(Constant.CHANGE_NO, {no: no});
+          next(); // to로 넘어가는 함수
         }
     }
 </script>

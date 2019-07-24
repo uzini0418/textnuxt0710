@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="wrap">
       <div class="left">
         <h2>
           <NLink to="/">Main Page</NLink>
@@ -15,24 +15,16 @@
       <div class="right">
         <NuxtChild :key="$route.params.id" />
       </div>
-
     </div>
 </template>
 
 <script>
     export default {
         name: "users",
-        data: function() {
-          return {
-            users: [
-              { id: 1, name: '바나나', number: 24 },
-              { id: 2, name: '사과', number: 30 },
-              { id: 3, name: '키위', number: 24 },
-              { id: 4, name: '참외', number: 5 },
-              { id: 5, name: '오렌지', number: 9 }
-            ]
-          }
+        asyncData({ env }) {
+          return {users: env.users}
         }
+
     }
 </script>
 
@@ -48,7 +40,8 @@
     opacity: 0.5;
     transform: rotateY(100deg);
   }
-  .container {
+  .wrap {
+    position: relative;
     width: 100%;
     margin: 0;
     padding: 0;

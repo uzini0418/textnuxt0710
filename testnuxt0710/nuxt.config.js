@@ -13,6 +13,15 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  env: {
+    users: [
+      { id: 1, name: '바나나', number: 24 },
+      { id: 2, name: '사과', number: 30 },
+      { id: 3, name: '키위', number: 24 },
+      { id: 4, name: '참외', number: 5 },
+      { id: 5, name: '오렌지', number: 9 }
+    ]
+  },
 
   /*
   ** Customize the progress bar color

@@ -1,6 +1,6 @@
 export default {
   getContactOne(state) {
-    console.log(state);
+    //console.log(state);
     var no = state.no;
     var arr = state.contacts.filter(function(item, index) {
       return item.no == no;

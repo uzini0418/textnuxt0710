@@ -6,7 +6,9 @@
 </template>
 
 <script>
-import eventBus from './EventBus.vue'
+//import eventBus from './EventBus.vue'
+import Constant from '../constant';
+import { mapMutations } from 'vuex';
 
     export default {
         name: "InputTodo",
@@ -14,10 +16,21 @@ import eventBus from './EventBus.vue'
           return {todo: ""}
         },
         methods: {
-          addTodo: function() {
-            eventBus.$emit('add-todo', this.todo);
-            this.todo = "";
-          }
+          // addTodo: function() {
+          //   eventBus.$emit('add-todo', this.todo);
+          //   this.todo = "";
+          // }
+
+          // addTodo: function() {
+          //   this.$store.commit(Constant.ADD_TODO, {todo: this.todo});
+          //   this.todo = "";
+          // }
+            ...mapMutations([
+              Constant.ADD_TODO
+            ]),
+            addTodo: function() {
+              this.Constant.ADD_TODO({todo: this.todo});
+            }
         }
     }
 </script>

@@ -8,23 +8,16 @@
 
 <script>
     export default {
-        name: "_id",
-        data: function() {
-          return {
-            users: [
-              { id: 1, name: '바나나', number: 24 },
-              { id: 2, name: '사과', number: 30 },
-              { id: 3, name: '키위', number: 24 },
-              { id: 4, name: '참외', number: 5 },
-              { id: 5, name: '오렌지', number: 9 }
-            ]
-          }
-        },
+        name: "userid",
         validate({params}) {
-            return /^\d+$/.test(params.id);
+          return !isNaN(+params.id);
         },
-        asyncData ({params}) {
-          const user = users.find(user => String(user.id) === params.id)
+        asyncData ({params, env, error}) {
+          console.log(params);
+          console.log(env);
+          console.log(error);
+          const user = env.users.find(user => String(user.id) === params.id)
+          console.log(user);
           if(!user) {
             return error({ message: 'User not found', statusCode: 404})
           }

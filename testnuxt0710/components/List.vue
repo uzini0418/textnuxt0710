@@ -13,11 +13,15 @@
 
 <script>
 import eventBus from './EventBus.vue';
+import { mapState, mapMutations } from 'vuex';
     export default {
         name: "List",
+      /*
       created: function() {
           eventBus.$on('add-todo', this.addTodo);
       },
+      */
+      /* event bus
       data: function() {
           return {
             todolist : [
@@ -28,23 +32,30 @@ import eventBus from './EventBus.vue';
             ]
           }
       },
+      */
       methods: {
-          checked: function(done) {
-            if(done) return { checked: true };
-            else return { checked: false };
-          },
-          addTodo: function(todo) {
-            if(todo !== "") {
-              this.todolist.push({ todo: todo, done: false });
-            }
-          },
-          doneToggle: function(index) {
-            this.todolist[index].done = !this.todolist[index].done;
-          },
-          deleteTodo: function(index) {
-            this.todolist.splice(index,1);
-          }
-      }
+        checked: function (done) {
+          if (done) return {checked: true};
+          else return {checked: false};
+        },
+        // addTodo: function (todo) {
+        //   if (todo !== "") {
+        //     this.todolist.push({todo: todo, done: false});
+        //   }
+        // },
+        doneToggle: function (index) {
+          this.todolist[index].done = !this.todolist[index].done;
+        },
+        deleteTodo: function (index) {
+          this.todolist.splice(index, 1);
+        }
+      },
+
+      computed: mapState(['todoList'])
+        // todolist() {
+        //   return this.$store.state.todolist;
+        // }
+
     }
 </script>
 

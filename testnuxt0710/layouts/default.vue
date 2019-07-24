@@ -13,6 +13,15 @@
           <li>
             <nuxt-link to="/contacts">Contacts</nuxt-link>
           </li>
+          <li>
+            <nuxt-link to="/props">props</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/event">event</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/bubble">bubble</nuxt-link>
+          </li>
         </ul>
       </nav>
     </div>
